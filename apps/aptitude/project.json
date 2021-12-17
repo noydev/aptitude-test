@@ -1,0 +1,71 @@
+{
+  "root": "apps/aptitude",
+  "sourceRoot": "apps/aptitude/src",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/web:webpack",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
+      "options": {
+        "compiler": "babel",
+        "outputPath": "dist/apps/aptitude",
+        "index": "apps/aptitude/src/index.html",
+        "baseHref": "/",
+        "main": "apps/aptitude/src/main.tsx",
+        "polyfills": "apps/aptitude/src/polyfills.ts",
+        "tsConfig": "apps/aptitude/tsconfig.app.json",
+        "assets": ["apps/aptitude/src/favicon.ico", "apps/aptitude/src/assets"],
+        "styles": ["apps/aptitude/src/styles.css"],
+        "scripts": [],
+        "webpackConfig": "@nrwl/react/plugins/webpack"
+      },
+      "configurations": {
+        "production": {
+          "fileReplacements": [
+            {
+              "replace": "apps/aptitude/src/environments/environment.ts",
+              "with": "apps/aptitude/src/environments/environment.prod.ts"
+            }
+          ],
+          "optimization": true,
+          "outputHashing": "all",
+          "sourceMap": false,
+          "namedChunks": false,
+          "extractLicenses": true,
+          "vendorChunk": false
+        }
+      }
+    },
+    "serve": {
+      "executor": "@nrwl/web:dev-server",
+      "options": {
+        "buildTarget": "aptitude:build",
+        "hmr": true,
+        "proxyConfig": "apps/aptitude/proxy.conf.json"
+      },
+      "configurations": {
+        "production": {
+          "buildTarget": "aptitude:build:production",
+          "hmr": false
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/aptitude/**/*.{ts,tsx,js,jsx}"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/apps/aptitude"],
+      "options": {
+        "jestConfig": "apps/aptitude/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}

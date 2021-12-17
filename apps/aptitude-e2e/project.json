@@ -1,0 +1,28 @@
+{
+  "root": "apps/aptitude-e2e",
+  "sourceRoot": "apps/aptitude-e2e/src",
+  "projectType": "application",
+  "targets": {
+    "e2e": {
+      "executor": "@nrwl/cypress:cypress",
+      "options": {
+        "cypressConfig": "apps/aptitude-e2e/cypress.json",
+        "devServerTarget": "aptitude:serve"
+      },
+      "configurations": {
+        "production": {
+          "devServerTarget": "aptitude:serve:production"
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/aptitude-e2e/**/*.{js,ts}"]
+      }
+    }
+  },
+  "tags": [],
+  "implicitDependencies": ["aptitude"]
+}
