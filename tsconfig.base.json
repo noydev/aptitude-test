@@ -1,6 +1,7 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
+    "esModuleInterop": true,
     "rootDir": ".",
     "sourceMap": true,
     "declaration": false,
@@ -15,7 +16,9 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@aptitude-test/api-interfaces": ["libs/api-interfaces/src/index.ts"]
+      "@aptitude-test/api-interfaces": ["libs/api-interfaces/src/index.ts"],
+      "@aptitude-test/api/db-connect": ["libs/api/db-connect/src/index.ts"],
+      "@aptitude/auth-jwt": ["libs/api/auth-jwt/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

@@ -1,28 +1,9 @@
-import React, { useEffect, useState } from 'react';
-import { Message } from '@aptitude-test/api-interfaces';
+import { useState } from 'react';
+import './app.module.css';
+import AppRouter from './app-router/app-router';
 
-export const App = () => {
-  const [m, setMessage] = useState<Message>({ message: '' });
-
-  useEffect(() => {
-    fetch('/api')
-      .then((r) => r.json())
-      .then(setMessage);
-  }, []);
-
-  return (
-    <>
-      <div style={{ textAlign: 'center' }}>
-        <h1>Welcome to aptitude!</h1>
-        <img
-          width="450"
-          src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-logo.png"
-          alt="Nx - Smart, Extensible Build Framework"
-        />
-      </div>
-      <div>{m.message}</div>
-    </>
-  );
-};
+function App() {
+  return <AppRouter />;
+}
 
 export default App;

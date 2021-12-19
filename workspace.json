@@ -2,6 +2,8 @@
   "version": 2,
   "projects": {
     "api": "apps/api",
+    "api-auth-jwt": "libs/api/auth-jwt",
+    "api-db-connect": "libs/api/db-connect",
     "api-interfaces": "libs/api-interfaces",
     "aptitude": "apps/aptitude",
     "aptitude-e2e": "apps/aptitude-e2e"

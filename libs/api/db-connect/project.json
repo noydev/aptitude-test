@@ -1,0 +1,15 @@
+{
+  "root": "libs/api/db-connect",
+  "sourceRoot": "libs/api/db-connect/src",
+  "projectType": "library",
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["libs/api/db-connect/**/*.ts"]
+      }
+    }
+  },
+  "tags": []
+}

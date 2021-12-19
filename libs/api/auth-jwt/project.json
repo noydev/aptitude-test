@@ -1,0 +1,33 @@
+{
+  "root": "libs/api/auth-jwt",
+  "sourceRoot": "libs/api/auth-jwt/src",
+  "projectType": "library",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/libs/api/auth-jwt",
+        "main": "libs/api/auth-jwt/src/index.ts",
+        "tsConfig": "libs/api/auth-jwt/tsconfig.lib.json",
+        "assets": ["libs/api/auth-jwt/*.md"]
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["libs/api/auth-jwt/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/api/auth-jwt"],
+      "options": {
+        "jestConfig": "libs/api/auth-jwt/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}
